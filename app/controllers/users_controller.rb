@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     def create
         user = User.create(user_params)
-        if user.is_valid?
+        if user.valid?
             render json: user
         else
             render json: {errors: user.errors.full_messages}
