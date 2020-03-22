@@ -7,8 +7,17 @@ class UsersController < ApplicationController
             render json: {errors: user.errors.full_messages}
         end
     end
+
+    def profile
+        render json: logged_in_user
+    end
+
     private
+
     def user_params
         params.permit(:username, :password)
     end
+
+    
+
 end
